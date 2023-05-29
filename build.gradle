@@ -41,7 +41,21 @@ configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
+	tests
 }
+tasks.register('testsJar', Jar) {
+	dependsOn testClasses
+	archiveClassifier = 'tests'
+	from sourceSets.test.output
+}
+
+
+artifacts {
+	tests testsJar
+	archives testsJar
+}
+
+jar.finalizedBy(testsJar)
 
 repositories {
 	mavenCentral()
