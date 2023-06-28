@@ -12,9 +12,7 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CourseChange {
-
-    UUID courseId;
+public class ChapterChange {
 
     List<UUID> chapterIds;
 
