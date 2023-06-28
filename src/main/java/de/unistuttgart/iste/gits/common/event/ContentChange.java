@@ -1,4 +1,4 @@
-package de.unistuttgart.iste.gits.common.dapr;
+package de.unistuttgart.iste.gits.common.event;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,10 +12,9 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CourseAssociationDTO {
+public class ContentChange {
 
-    private UUID resourceId;
-    private List<UUID> chapterIds;
-    private CrudOperation operation;
+    List<UUID> contentId;
 
+    CrudOperation operation;
 }
