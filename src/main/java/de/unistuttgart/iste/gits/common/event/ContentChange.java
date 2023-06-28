@@ -14,7 +14,7 @@ import java.util.UUID;
 @AllArgsConstructor
 public class ContentChange {
 
-    List<UUID> contentId;
+    List<UUID> contentIds;
 
     CrudOperation operation;
 }
