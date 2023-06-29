@@ -12,9 +12,10 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResourceUpdate {
+public class CourseAssociationEvent {
 
-    UUID entityId;
-    List<UUID> contentIds;
-    CrudOperation operation;
+    private UUID resourceId;
+    private List<UUID> chapterIds;
+    private CrudOperation operation;
+
 }

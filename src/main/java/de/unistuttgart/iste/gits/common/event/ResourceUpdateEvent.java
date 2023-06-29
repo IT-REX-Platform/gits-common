@@ -12,9 +12,9 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ChapterChange {
+public class ResourceUpdateEvent {
 
-    List<UUID> chapterIds;
-
-    CrudOperation operation;
+    private UUID entityId;
+    private List<UUID> contentIds;
+    private CrudOperation operation;
 }

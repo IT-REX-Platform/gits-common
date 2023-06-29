@@ -5,16 +5,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
 import java.util.UUID;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ContentChange {
+public class CourseChangeEvent {
 
-    List<UUID> contentIds;
-
-    CrudOperation operation;
+    private UUID courseId;
+    private CrudOperation operation;
 }
