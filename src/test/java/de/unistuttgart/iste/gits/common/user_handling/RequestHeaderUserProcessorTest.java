@@ -26,7 +26,7 @@ public class RequestHeaderUserProcessorTest {
             "MyUserName",
             "John",
             "Doe",
-                null
+                "this isn't an auth token"
         );
 
         HttpHeaders headers = new HttpHeaders();
