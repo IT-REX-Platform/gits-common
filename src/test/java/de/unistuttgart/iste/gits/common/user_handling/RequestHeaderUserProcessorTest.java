@@ -25,7 +25,8 @@ public class RequestHeaderUserProcessorTest {
             java.util.UUID.fromString("123e4567-e89b-12d3-a456-426614174000"),
             "MyUserName",
             "John",
-            "Doe"
+            "Doe",
+                null
         );
 
         HttpHeaders headers = new HttpHeaders();
