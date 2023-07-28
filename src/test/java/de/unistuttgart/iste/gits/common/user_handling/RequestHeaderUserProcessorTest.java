@@ -18,6 +18,7 @@ public class RequestHeaderUserProcessorTest {
                     "userName": "MyUserName",
                     "firstName": "John",
                     "lastName": "Doe"
+                    "authToken": "this isn't an auth token"
                 }
                 """;
 
