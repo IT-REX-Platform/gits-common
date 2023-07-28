@@ -17,7 +17,7 @@ public class RequestHeaderUserProcessorTest {
                     "id": "123e4567-e89b-12d3-a456-426614174000",
                     "userName": "MyUserName",
                     "firstName": "John",
-                    "lastName": "Doe"
+                    "lastName": "Doe",
                     "authToken": "this isn't an auth token"
                 }
                 """;
