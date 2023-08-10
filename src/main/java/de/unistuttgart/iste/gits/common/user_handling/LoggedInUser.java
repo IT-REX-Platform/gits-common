@@ -10,7 +10,6 @@ import java.util.UUID;
  * This class represents user data for a logged-in user as provided by keycloak.
  */
 @Getter
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class LoggedInUser {
     private final UUID id;
     private final String userName;
