@@ -9,11 +9,15 @@ import java.util.UUID;
 /**
  * Wrapper class for the ResourceMarkdownEmbeddable in case it is easier to use
  * as an entity, e.g., when multiple markdowns are referenced by the same entity.
+ * <br />
+ * As this is less performant than the embeddable, it should only be used if necessary.
+ * <br />
+ * You need to add the following annotation to your application class:
+ * {@code @EntityScan({"de.unistuttgart.iste.gits.common.resource_markdown", <your entity package>})}
  */
 @Entity(name = "ResourceMarkdown")
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
 public class ResourceMarkdownEntity {
 
@@ -23,6 +27,14 @@ public class ResourceMarkdownEntity {
 
     @Embedded
     private ResourceMarkdownEmbeddable resourceMarkdown;
+
+    public ResourceMarkdownEntity() {
+        this.resourceMarkdown = new ResourceMarkdownEmbeddable();
+    }
+
+    public ResourceMarkdownEntity(ResourceMarkdownEmbeddable resourceMarkdown) {
+        this.resourceMarkdown = resourceMarkdown;
+    }
 
     public ResourceMarkdownEntity(String text) {
         this.resourceMarkdown = new ResourceMarkdownEmbeddable(text);
