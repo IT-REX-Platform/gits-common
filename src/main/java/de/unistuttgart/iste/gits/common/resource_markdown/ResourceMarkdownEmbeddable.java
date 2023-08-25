@@ -1,7 +1,7 @@
 package de.unistuttgart.iste.gits.common.resource_markdown;
 
 import jakarta.persistence.*;
-import lombok.Getter;
+import lombok.*;
 
 import java.util.*;
 import java.util.regex.Matcher;
@@ -16,12 +16,15 @@ import java.util.regex.Pattern;
  * </a>.
  */
 @Getter
+@EqualsAndHashCode
+@ToString
 @Embeddable
 public class ResourceMarkdownEmbeddable {
 
     @Column(columnDefinition = "TEXT")
     private String text;
     @ElementCollection
+    @EqualsAndHashCode.Exclude
     private List<UUID> referencedMediaRecordIds;
 
     // quite a complicated regex pattern to match a ResourceMarkdown link. For an explanation of this regex, see
@@ -78,4 +81,6 @@ public class ResourceMarkdownEmbeddable {
 
         this.referencedMediaRecordIds = referencedMediaRecords;
     }
+
+
 }
