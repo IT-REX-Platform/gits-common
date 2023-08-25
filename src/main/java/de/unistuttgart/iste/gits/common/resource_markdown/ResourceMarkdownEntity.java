@@ -23,6 +23,7 @@ public class ResourceMarkdownEntity {
 
     @Id
     @GeneratedValue
+    @EqualsAndHashCode.Exclude
     private UUID id;
 
     @Embedded
