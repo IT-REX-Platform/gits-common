@@ -24,6 +24,10 @@ public class ResourceMarkdownEntity {
     @Embedded
     private ResourceMarkdownEmbeddable resourceMarkdown;
 
+    public ResourceMarkdownEntity(String text) {
+        this.resourceMarkdown = new ResourceMarkdownEmbeddable(text);
+    }
+
     public String getText() {
         return this.resourceMarkdown.getText();
     }
