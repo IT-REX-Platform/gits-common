@@ -3,6 +3,7 @@ package de.unistuttgart.iste.gits.common.user_handling;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -33,10 +34,35 @@ public class LoggedInUser {
     public static class CourseMembership {
         private final UUID courseId;
         private final UserRoleInCourse role;
+        private final boolean published;
+        private final OffsetDateTime startDate;
+        private final OffsetDateTime endDate;
 
-        public CourseMembership(@JsonProperty("courseId") UUID courseId, @JsonProperty("role") UserRoleInCourse role) {
+        public CourseMembership(UUID courseId,
+                                UserRoleInCourse role,
+                                boolean published,
+                                OffsetDateTime startDate,
+                                OffsetDateTime endDate) {
             this.courseId = courseId;
             this.role = role;
+            this.published = published;
+            this.startDate = startDate;
+            this.endDate = endDate;
+        }
+
+        /**
+         * Constructor used for JSON deserialization.
+         */
+        public CourseMembership(@JsonProperty("courseId") UUID courseId,
+                                @JsonProperty("role") UserRoleInCourse role,
+                                @JsonProperty("published") boolean published,
+                                @JsonProperty("startDate") String startDate,
+                                @JsonProperty("endDate") String endDate) {
+            this.courseId = courseId;
+            this.role = role;
+            this.published = published;
+            this.startDate = OffsetDateTime.parse(startDate);
+            this.endDate = OffsetDateTime.parse(endDate);
         }
     }
 

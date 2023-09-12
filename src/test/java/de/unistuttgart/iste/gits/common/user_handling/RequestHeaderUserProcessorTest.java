@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.graphql.server.WebGraphQlRequest;
 import org.springframework.http.HttpHeaders;
 import java.net.URI;
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -22,7 +23,10 @@ public class RequestHeaderUserProcessorTest {
                     "courseMemberships": [
                         {
                             "courseId": "123e4567-e89b-12d3-a456-426614174000",
-                            "role": "STUDENT"
+                            "role": "STUDENT",
+                            "published": true,
+                            "startDate": "2020-01-01T00:00:00.000Z",
+                            "endDate": "2021-01-01T00:00:00.000Z"
                         }
                     ]
                 }
@@ -35,7 +39,10 @@ public class RequestHeaderUserProcessorTest {
                 "Doe",
                 List.of(new LoggedInUser.CourseMembership(
                         java.util.UUID.fromString("123e4567-e89b-12d3-a456-426614174000"),
-                        LoggedInUser.UserRoleInCourse.STUDENT)
+                        LoggedInUser.UserRoleInCourse.STUDENT,
+                        true,
+                        OffsetDateTime.parse("2020-01-01T00:00:00.000Z"),
+                        OffsetDateTime.parse("2021-01-01T00:00:00.000Z"))
                 )
         );
 
