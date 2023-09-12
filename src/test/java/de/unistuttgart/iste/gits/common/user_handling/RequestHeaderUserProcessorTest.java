@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.graphql.server.WebGraphQlRequest;
 import org.springframework.http.HttpHeaders;
 import java.net.URI;
+import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -17,15 +18,25 @@ public class RequestHeaderUserProcessorTest {
                     "id": "123e4567-e89b-12d3-a456-426614174000",
                     "userName": "MyUserName",
                     "firstName": "John",
-                    "lastName": "Doe"
+                    "lastName": "Doe",
+                    "courseMemberships": [
+                        {
+                            "courseId": "123e4567-e89b-12d3-a456-426614174000",
+                            "role": "STUDENT"
+                        }
+                    ]
                 }
                 """;
 
         LoggedInUser user = new LoggedInUser(
-            java.util.UUID.fromString("123e4567-e89b-12d3-a456-426614174000"),
-            "MyUserName",
-            "John",
-            "Doe"
+                java.util.UUID.fromString("123e4567-e89b-12d3-a456-426614174000"),
+                "MyUserName",
+                "John",
+                "Doe",
+                List.of(new LoggedInUser.CourseMembership(
+                        java.util.UUID.fromString("123e4567-e89b-12d3-a456-426614174000"),
+                        LoggedInUser.UserRoleInCourse.STUDENT)
+                )
         );
 
         HttpHeaders headers = new HttpHeaders();
