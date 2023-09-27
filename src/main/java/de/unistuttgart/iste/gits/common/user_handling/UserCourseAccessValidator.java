@@ -13,9 +13,10 @@ public class UserCourseAccessValidator {
      * Validates that a user has access to a course at the specified level (role). Also takes into account start and
      * end dates of the course and its published status.
      * Throws a NoAccessToCourseException if the user does not have access to the course.
-     * @param user The user to validate.
+     *
+     * @param user                The user to validate.
      * @param requiredMinimumRole The role which the user must at least have in this course for validation to succeed.
-     * @param courseId The id of the course to validate access to.
+     * @param courseId            The id of the course to validate access to.
      * @throws NoAccessToCourseException If the user does not have access to the course.
      */
     public static void validateUserHasAccessToCourse(LoggedInUser user,

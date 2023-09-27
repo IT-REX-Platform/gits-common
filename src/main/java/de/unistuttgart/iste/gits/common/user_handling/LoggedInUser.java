@@ -80,6 +80,7 @@ public class LoggedInUser {
 
         /**
          * Checks if the user has at least the permissions of the specified role.
+         *
          * @param role The role to check against.
          * @return True if the user has at least the permissions of the specified role, false otherwise.
          */
