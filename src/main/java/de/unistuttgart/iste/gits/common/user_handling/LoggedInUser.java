@@ -74,7 +74,7 @@ public class LoggedInUser {
         TUTOR(2),
         ADMINISTRATOR(3);
 
-        UserRoleInCourse(int roleRanking) {
+        UserRoleInCourse(final int roleRanking) {
             this.roleRanking = roleRanking;
         }
 
@@ -84,7 +84,7 @@ public class LoggedInUser {
          * @param role The role to check against.
          * @return True if the user has at least the permissions of the specified role, false otherwise.
          */
-        public boolean hasAtLeastPermissionsOf(UserRoleInCourse role) {
+        public boolean hasAtLeastPermissionsOf(final UserRoleInCourse role) {
             return this.roleRanking >= role.roleRanking;
         }
 
