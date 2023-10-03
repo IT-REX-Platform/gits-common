@@ -7,6 +7,11 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * MockTopicPublisher for local development.
+ * It will log all messages instead of sending them to the dapr topic.
+ *
+ */
 @Slf4j
 public class MockTopicPublisher extends TopicPublisher {
 
