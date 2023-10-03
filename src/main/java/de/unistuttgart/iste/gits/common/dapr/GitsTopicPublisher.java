@@ -8,6 +8,11 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * The TopicPublisher for all services.
+ * Contains a generic publishEvent method to publish the events in a unified way,
+ * as well as methods for the various events that can be published.
+ */
 @Slf4j
 @RequiredArgsConstructor
 public class GitsTopicPublisher {
@@ -70,10 +75,19 @@ public class GitsTopicPublisher {
         publishEvent(dto, Topic.CONTENT_CHANGED);
     }
 
+    /**
+     * Method to notify when a user has worked on a content.
+     *
+     * @param userProgressLogEvent of the worked on content
+     */
     public void notifyUserWorkedOnContent(final UserProgressLogEvent userProgressLogEvent) {
         publishEvent(userProgressLogEvent, Topic.CONTENT_PROGRESSED);
     }
 
+    /**
+     * Method to notify when the content service has processed the completion of a content worked on by a user.
+     * @param userProgressLogEvent of the processed content
+     */
     public void notifyUserProgressProcessed(final UserProgressLogEvent userProgressLogEvent) {
         publishEvent(userProgressLogEvent, Topic.USER_PROGRESS_UPDATED);
     }
