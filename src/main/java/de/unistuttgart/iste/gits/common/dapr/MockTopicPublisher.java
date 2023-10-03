@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Slf4j
-public class MockTopicPublisher extends GitsTopicPublisher{
+public class MockTopicPublisher extends TopicPublisher {
 
     public MockTopicPublisher() {
         super(null);

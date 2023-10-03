@@ -15,7 +15,7 @@ import java.util.UUID;
  */
 @Slf4j
 @RequiredArgsConstructor
-public class GitsTopicPublisher {
+public class TopicPublisher {
 
     private static final String PUBSUB_NAME = "gits";
 
