@@ -1,6 +1,5 @@
 package de.unistuttgart.iste.gits.common.dapr;
 
-import de.unistuttgart.iste.gits.common.event.ContentChangeEvent;
 import de.unistuttgart.iste.gits.common.event.CrudOperation;
 import de.unistuttgart.iste.gits.common.event.UserProgressLogEvent;
 import lombok.extern.slf4j.Slf4j;
