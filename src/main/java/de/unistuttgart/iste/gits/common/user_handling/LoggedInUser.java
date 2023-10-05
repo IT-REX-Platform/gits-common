@@ -19,17 +19,20 @@ public class LoggedInUser {
     private final String firstName;
     private final String lastName;
     private final List<CourseMembership> courseMemberships;
+    private final List<String> realmRoles;
 
     public LoggedInUser(@JsonProperty("id") final UUID id,
                         @JsonProperty("userName") final String userName,
                         @JsonProperty("firstName") final String firstName,
                         @JsonProperty("lastName") final String lastName,
-                        @JsonProperty("courseMemberships") final List<CourseMembership> courseMemberships) {
+                        @JsonProperty("courseMemberships") final List<CourseMembership> courseMemberships,
+                        @JsonProperty("realmRoles") final List<String> realmRoles) {
         this.id = id;
         this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;
         this.courseMemberships = courseMemberships;
+        this.realmRoles = realmRoles;
     }
 
     @Data
