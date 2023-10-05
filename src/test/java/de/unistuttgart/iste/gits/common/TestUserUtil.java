@@ -4,6 +4,7 @@ import de.unistuttgart.iste.gits.common.user_handling.LoggedInUser;
 
 import java.time.OffsetDateTime;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 public class TestUserUtil {
@@ -16,7 +17,7 @@ public class TestUserUtil {
                 .firstName("firstName")
                 .lastName("lastName")
                 .courseMemberships(List.of(courseMemberships))
-                .realmRoles(List.of("course-creator"))
+                .realmRoles(Set.of(LoggedInUser.RealmRole.COURSE_CREATOR))
                 .build();
     }
 

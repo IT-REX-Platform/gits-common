@@ -1,6 +1,7 @@
 package de.unistuttgart.iste.gits.common.user_handling;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
@@ -16,6 +17,7 @@ import java.util.stream.Collectors;
  */
 @Data
 @Builder
+@AllArgsConstructor
 public class LoggedInUser {
     private final UUID id;
     private final String userName;

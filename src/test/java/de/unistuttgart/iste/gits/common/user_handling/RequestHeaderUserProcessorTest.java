@@ -7,6 +7,7 @@ import org.springframework.http.HttpHeaders;
 import java.net.URI;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -51,7 +52,7 @@ class RequestHeaderUserProcessorTest {
                 .firstName("John")
                 .lastName("Doe")
                 .courseMemberships(List.of(courseMembership))
-                .realmRoles(new ArrayList<>())
+                .realmRoles(new HashSet<>())
                 .build();
 
 
