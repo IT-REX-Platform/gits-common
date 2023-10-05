@@ -39,7 +39,7 @@ public class MockTopicPublisher extends TopicPublisher {
     }
 
     @Override
-    public void notifyUserProgressProcessed(final UserProgressProcessedEvent userProgressProcessedEvent) {
-        log.info("notifyUserProgressProcessed called with {}", userProgressProcessedEvent);
+    public void notifyUserProgressUpdated(final UserProgressUpdatedEvent userProgressUpdatedEvent) {
+        log.info("notifyUserProgressProcessed called with {}", userProgressUpdatedEvent);
     }
 }

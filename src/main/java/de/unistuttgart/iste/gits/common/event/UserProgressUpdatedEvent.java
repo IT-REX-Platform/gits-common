@@ -10,7 +10,7 @@ import java.util.UUID;
 @Data
 @Builder
 @AllArgsConstructor
-public class UserProgressProcessedEvent {
+public class UserProgressUpdatedEvent {
 
     private UUID userId;
     private UUID contentId;

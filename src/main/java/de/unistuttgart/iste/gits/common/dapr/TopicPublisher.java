@@ -86,10 +86,10 @@ public class TopicPublisher {
 
     /**
      * Method to notify when the content service has processed the completion of a content worked on by a user.
-     * @param userProgressProcessedEvent of the processed content
+     * @param userProgressUpdatedEvent of the processed content
      */
-    public void notifyUserProgressProcessed(final UserProgressProcessedEvent userProgressProcessedEvent) {
-        publishEvent(userProgressProcessedEvent, DaprTopic.USER_PROGRESS_UPDATED);
+    public void notifyUserProgressUpdated(final UserProgressUpdatedEvent userProgressUpdatedEvent) {
+        publishEvent(userProgressUpdatedEvent, DaprTopic.USER_PROGRESS_UPDATED);
     }
 
 }
