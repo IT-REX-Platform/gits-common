@@ -8,7 +8,7 @@ import java.util.UUID;
 
 public class TestUserUtil {
 
-    public static LoggedInUser generateUser(final LoggedInUser.CourseMembership... courseMemberships){
+    public static LoggedInUser createUserWithMemberships(final LoggedInUser.CourseMembership... courseMemberships){
 
         return LoggedInUser.builder()
                 .userName("userWithMemberships")

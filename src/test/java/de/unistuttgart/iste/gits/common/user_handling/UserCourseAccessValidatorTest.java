@@ -5,7 +5,6 @@ import de.unistuttgart.iste.gits.common.exception.NoAccessToCourseException;
 import org.junit.jupiter.api.Test;
 
 import java.time.OffsetDateTime;
-import java.util.List;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -19,7 +18,7 @@ class UserCourseAccessValidatorTest {
                 .role(LoggedInUser.UserRoleInCourse.STUDENT)
                 .build();
 
-        LoggedInUser user = TestUserUtil.generateUser(membership);
+        LoggedInUser user = TestUserUtil.createUserWithMemberships(membership);
 
         assertDoesNotThrow(() -> UserCourseAccessValidator.validateUserHasAccessToCourse(
                 user,
@@ -37,7 +36,7 @@ class UserCourseAccessValidatorTest {
                 .role(LoggedInUser.UserRoleInCourse.STUDENT)
                 .build();
 
-        LoggedInUser user = TestUserUtil.generateUser(membership);
+        LoggedInUser user = TestUserUtil.createUserWithMemberships(membership);
 
 
 
@@ -56,7 +55,7 @@ class UserCourseAccessValidatorTest {
                 .role(LoggedInUser.UserRoleInCourse.STUDENT)
                 .build();
 
-        LoggedInUser user = TestUserUtil.generateUser(membership);
+        LoggedInUser user = TestUserUtil.createUserWithMemberships(membership);
 
         UUID userCourseID = user.getCourseMemberships().get(0).getCourseId();
 
@@ -75,7 +74,7 @@ class UserCourseAccessValidatorTest {
                 .role(LoggedInUser.UserRoleInCourse.TUTOR)
                 .build();
 
-        LoggedInUser user = TestUserUtil.generateUser(membership);
+        LoggedInUser user = TestUserUtil.createUserWithMemberships(membership);
 
         assertDoesNotThrow(() -> UserCourseAccessValidator.validateUserHasAccessToCourse(
                 user,
@@ -91,7 +90,7 @@ class UserCourseAccessValidatorTest {
                 .role(LoggedInUser.UserRoleInCourse.STUDENT)
                 .build();
 
-        LoggedInUser user = TestUserUtil.generateUser(membership);
+        LoggedInUser user = TestUserUtil.createUserWithMemberships(membership);
 
         UUID userCourseID = user.getCourseMemberships().get(0).getCourseId();
 
@@ -111,7 +110,7 @@ class UserCourseAccessValidatorTest {
                 .role(LoggedInUser.UserRoleInCourse.STUDENT)
                 .build();
 
-        LoggedInUser user = TestUserUtil.generateUser(membership);
+        LoggedInUser user = TestUserUtil.createUserWithMemberships(membership);
 
         UUID userCourseID = user.getCourseMemberships().get(0).getCourseId();
 
@@ -131,7 +130,7 @@ class UserCourseAccessValidatorTest {
                 .role(LoggedInUser.UserRoleInCourse.TUTOR)
                 .build();
 
-        LoggedInUser user = TestUserUtil.generateUser(membership);
+        LoggedInUser user = TestUserUtil.createUserWithMemberships(membership);
 
         assertDoesNotThrow(() -> UserCourseAccessValidator.validateUserHasAccessToCourse(
                 user,
@@ -149,7 +148,7 @@ class UserCourseAccessValidatorTest {
                 .role(LoggedInUser.UserRoleInCourse.STUDENT)
                 .build();
 
-        LoggedInUser user = TestUserUtil.generateUser(membership);
+        LoggedInUser user = TestUserUtil.createUserWithMemberships(membership);
 
         UUID userCourseID = user.getCourseMemberships().get(0).getCourseId();
 
@@ -169,7 +168,7 @@ class UserCourseAccessValidatorTest {
                 .role(LoggedInUser.UserRoleInCourse.TUTOR)
                 .build();
 
-        LoggedInUser user = TestUserUtil.generateUser(membership);
+        LoggedInUser user = TestUserUtil.createUserWithMemberships(membership);
 
         assertDoesNotThrow(() -> UserCourseAccessValidator.validateUserHasAccessToCourse(
                 user,

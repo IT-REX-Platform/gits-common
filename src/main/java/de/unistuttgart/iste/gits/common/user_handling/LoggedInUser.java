@@ -5,8 +5,11 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 /**
  * This class represents user data for a logged-in user as provided by keycloak.
@@ -19,7 +22,7 @@ public class LoggedInUser {
     private final String firstName;
     private final String lastName;
     private final List<CourseMembership> courseMemberships;
-    private final List<String> realmRoles;
+    private final Set<RealmRole> realmRoles;
 
     public LoggedInUser(@JsonProperty("id") final UUID id,
                         @JsonProperty("userName") final String userName,
@@ -32,7 +35,7 @@ public class LoggedInUser {
         this.firstName = firstName;
         this.lastName = lastName;
         this.courseMemberships = courseMemberships;
-        this.realmRoles = realmRoles;
+        this.realmRoles = RealmRole.getRolesFromKeycloakRoleList(realmRoles);
     }
 
     @Data
@@ -95,5 +98,22 @@ public class LoggedInUser {
          * The ranking of the role in the course. The higher the ranking, the more permissions the role has.
          */
         private final int roleRanking;
+    }
+
+    public enum RealmRole {
+
+        COURSE_CREATOR("course-creator"),
+        SUPER_USER("super-user");
+
+        private final String keycloakRoleName;
+
+        RealmRole(final String keycloakRoleName) {
+            this.keycloakRoleName = keycloakRoleName;
+        }
+
+        public static Set<RealmRole> getRolesFromKeycloakRoleList(final List<String> keycloakRoleList) {
+
+            return Arrays.stream(RealmRole.values()).filter(role -> keycloakRoleList.contains(role.keycloakRoleName)).collect(Collectors.toSet());
+        }
     }
 }
